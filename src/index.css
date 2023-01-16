@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+video {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    position: fixed;
+    top: -30px;
+    z-index: -2;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+}
+
+.video-over {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    position: fixed;
+    top: -30px;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.info-window {
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 430px;
+    padding: 1rem;
+    border: 1px solid gray;
+    border-radius: 1rem;
+    background-color: #D4D4D4;
+    color: #2a2a2a;
+    z-index: 100;
+}
+
+.info-window-enter {
+    opacity: 0;
+}
+
+.info-window-enter-active {
+    opacity: 1;
+    transition: opacity 300ms
+}
+
+.info-window-exit {
+    opacity: 1;
+}
+
+.info-window-exit-active {
+    opacity: 0;
+    transition: opacity 300ms
+}
+
+.page-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.page-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+@keyframes animate-title {
+    0%, 100% {
+        clip-path: polygon(0% 45%, 15% 44%, 32% 50%,
+        54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+    }
+
+    50% {
+        clip-path: polygon(0% 60%, 16% 65%, 34% 66%,
+        51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+    }
+}
+
+.time-btn {
+    --color: #D4D4D4;
+    font-family: inherit;
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color);
+    transition: color 1s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    color: var(--color);
+}
+
+.time-btn:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: var(--color);
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+.time-btn:hover {
+    color: #000000;
+}
+
+.time-btn:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+}
+
+.time-btn:hover:before {
+    top: -30px;
+    left: -30px;
+}
+
+.time-btn:active:before {
+    background: #919191;
+    transition: background 0s;
+}
