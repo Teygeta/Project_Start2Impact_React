@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import RAIN_SOUND from '../assets/audio/Rain.mp3'
 import JAZZ_SOUND from '../assets/audio/Jazz.mp3'
 import NATURE_SOUND from '../assets/audio/Nature.mp3'
@@ -17,11 +17,10 @@ export function VolumeRange() {
     { name: 'Nature', sound: NATURE_SOUND },
   ]
 
-  const [soundRange] = useState(initSoundState);
 
   return (
     <div className="my-20 flex flex-1 flex-col items-center justify-center">
-      {soundRange.map((item, index) => {
+      {initSoundState.map((item, index) => {
         const audio = new Audio(item.sound)
         audio.loop = true
         let play = false
